@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende Tarifit (Tamazight Rifeño) de forma interactiva con flashcards, juegos y seguimiento de progreso">
+    <meta name="theme-color" content="#6366f1">
+    <title>Aprende Tarifit - Tamazight Rifeño</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌟</span>
+                    <h1 class="logo-text">Tarifit</h1>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">🔥</span>
+                        <span class="stat-value" id="streak">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-value" id="points">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Home View -->
+            <div id="homeView" class="view active">
+                <div class="hero">
+                    <h2 class="hero-title">Aprende Tarifit</h2>
+                    <p class="hero-subtitle">Descubre el idioma Tamazight Rifeño de forma divertida e interactiva</p>
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card" data-category="numbers">
+                        <div class="category-icon">🔢</div>
+                        <h3 class="category-title">Números</h3>
+                        <p class="category-description">Aprende a contar en Tarifit</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="numbers"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="numbers">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="animals">
+                        <div class="category-icon">🦁</div>
+                        <h3 class="category-title">Animales</h3>
+                        <p class="category-description">Descubre los nombres de animales</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="animals"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="animals">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="colors">
+                        <div class="category-icon">🎨</div>
+                        <h3 class="category-title">Colores</h3>
+                        <p class="category-description">Aprende los colores básicos</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="colors"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="colors">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="family">
+                        <div class="category-icon">👨‍👩‍👧‍👦</div>
+                        <h3 class="category-title">Familia</h3>
+                        <p class="category-description">Miembros de la familia</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="family"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="family">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="household">
+                        <div class="category-icon">🏠</div>
+                        <h3 class="category-title">Casa</h3>
+                        <p class="category-description">Objetos del hogar</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="household"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="household">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="food">
+                        <div class="category-icon">🍽️</div>
+                        <h3 class="category-title">Comida</h3>
+                        <p class="category-description">Alimentos y bebidas</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="food"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="food">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="phrases">
+                        <div class="category-icon">💬</div>
+                        <h3 class="category-title">Frases Comunes</h3>
+                        <p class="category-description">Expresiones útiles del día a día</p>
+                        <div class="category-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-progress="phrases"></div>
+                            </div>
+                            <span class="progress-text"><span class="progress-value" data-progress-text="phrases">0</span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card special" data-category="game">
+                        <div class="category-icon">🎮</div>
+                        <h3 class="category-title">Juego de Memoria</h3>
+                        <p class="category-description">Pon a prueba tu memoria</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flashcards View -->
+            <div id="flashcardsView" class="view">
+                <div class="view-header">
+                    <button class="btn-back" id="backFromFlashcards">
+                        <span>←</span> Volver
+                    </button>
+                    <h2 class="view-title" id="flashcardCategoryTitle"></h2>
+                </div>
+
+                <div class="flashcard-container">
+                    <div class="flashcard" id="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="flashcard-content">
+                                    <p class="flashcard-label">Español</p>
+                                    <h3 class="flashcard-word" id="flashcardSpanish"></h3>
+                                </div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="flashcard-content">
+                                    <p class="flashcard-label">Tarifit</p>
+                                    <h3 class="flashcard-word" id="flashcardTarifit"></h3>
+                                    <p class="flashcard-pronunciation" id="flashcardPronunciation"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-controls">
+                        <button class="btn-control" id="prevCard">
+                            <span>←</span> Anterior
+                        </button>
+                        <div class="flashcard-counter">
+                            <span id="currentCard">1</span> / <span id="totalCards">0</span>
+                        </div>
+                        <button class="btn-control" id="nextCard">
+                            Siguiente <span>→</span>
+                        </button>
+                    </div>
+
+                    <div class="flashcard-actions">
+                        <button class="btn-action btn-know" id="btnKnow">
+                            <span>✓</span> Lo sé
+                        </button>
+                        <button class="btn-action btn-learning" id="btnLearning">
+                            <span>~</span> Aprendiendo
+                        </button>
+                        <button class="btn-action btn-unknown" id="btnUnknown">
+                            <span>✗</span> No lo sé
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Game View -->
+            <div id="gameView" class="view">
+                <div class="view-header">
+                    <button class="btn-back" id="backFromGame">
+                        <span>←</span> Volver
+                    </button>
+                    <h2 class="view-title">Juego de Memoria</h2>
+                </div>
+
+                <div class="game-stats">
+                    <div class="game-stat">
+                        <span class="game-stat-label">Movimientos</span>
+                        <span class="game-stat-value" id="moves">0</span>
+                    </div>
+                    <div class="game-stat">
+                        <span class="game-stat-label">Parejas</span>
+                        <span class="game-stat-value"><span id="pairs">0</span> / 8</span>
+                    </div>
+                    <div class="game-stat">
+                        <span class="game-stat-label">Tiempo</span>
+                        <span class="game-stat-value" id="timer">0:00</span>
+                    </div>
+                </div>
+
+                <div class="memory-grid" id="memoryGrid"></div>
+
+                <button class="btn-primary" id="resetGame">🔄 Nuevo Juego</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Hecho con ❤️ para aprender Tarifit</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registrado'))
+                    .catch(err => console.log('Error al registrar Service Worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>

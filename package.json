@@ -1,0 +1,35 @@
+{
+    "name": "aprende-tarifit",
+    "version": "1.0.0",
+    "description": "Aplicación educativa para aprender Tarifit (Tamazight Rifeño)",
+    "main": "index.html",
+    "scripts": {
+        "init": "npx cap init",
+        "add:android": "npx cap add android",
+        "sync": "npx cap sync",
+        "sync:android": "npx cap sync android",
+        "open:android": "npx cap open android",
+        "build:android": "npx cap sync android && npx cap open android",
+        "update": "npx cap update"
+    },
+    "keywords": [
+        "tarifit",
+        "tamazight",
+        "education",
+        "language-learning",
+        "pwa",
+        "capacitor",
+        "android"
+    ],
+    "author": "Tarifit Learning Team",
+    "license": "MIT",
+    "dependencies": {
+        "@capacitor/android": "^6.0.0",
+        "@capacitor/core": "^6.0.0",
+        "@capacitor/splash-screen": "^6.0.0",
+        "@capacitor/status-bar": "^6.0.0"
+    },
+    "devDependencies": {
+        "@capacitor/cli": "^6.0.0"
+    }
+}
